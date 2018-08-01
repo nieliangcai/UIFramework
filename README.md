@@ -1,0 +1,2 @@
+# UIFramework
+这是封装的轻量级的Selenium自动化测试框架
