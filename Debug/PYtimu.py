@@ -34,10 +34,22 @@
 # print(sorted(dict.items(),key=lambda a:a[1],reverse=False))
 # for i in reversed(sorted(dict.items(),key=lambda d:d[1],reverse=False)[-3:]):
 #     print(i)
-import hashlib
-'''2中常见的加密算法'''
-string = "nieliangcai"
-hash_string = hashlib.md5()
-# hash_string = hashlib.sha1()
-hash_string.update(string.encode())
-print(hash_string.hexdigest())
+# import hashlib
+# '''2中常见的加密算法'''
+# string = "nieliangcai"
+# hash_string = hashlib.md5()
+# # hash_string = hashlib.sha1()
+# hash_string.update(string.encode())
+# print(hash_string.hexdigest())
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
+from  selenium.webdriver.support.wait import WebDriverWait
+driver = webdriver.Chrome()
+driver.get("http://www.baidu.com")
+driver.maximize_window()
+driver.find_element_by_id("kw").is_displayed()
+
+WebDriverWait(driver,10).until(EC.visibility_of)
+driver.execute_script()

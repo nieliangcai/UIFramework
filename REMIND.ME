@@ -1,15 +1,15 @@
 CASCO UI自动化项目，基础框架搭建
     1.配置公共方法：utils
-        1）file_reader：读取Config和Excel中的文件数据
-        2）Config：基础配置信息部分，，URL/Chrome_Type
-        3）log：调用Config中log等，设置log
+        1）file_reader：读取Config和Excel中的文件数据 xlrd
+        2）Config：基础配置信息部分，，URL/Chrome_Type  YamlReader
+        3）log：调用Config中log等，设置log  logging TimedRotatingFileHandler
         4）HTMLRunner：网上下载开源代码，生成HTML格式的测试报告
-        5）mail：生成报告之后，发送Email到邮箱
-        6）client：接口测试封装类
+        5）mail：生成报告之后，发送Email到邮箱 smtplib MIMEMultipart MIMEText
+        6）client：接口测试封装类 lib client
         7）extractor：json格式的抽取  lib jmespath
-        8) generator: 生成固定类型的测试数据
+        8) generator: 生成固定类型的测试数据 Factory
         9）assertion: 断言封装
-
+        10) support:  MD5，HASH加密算法  lib hashlib
 
     2.test用于执行case
         1）common通用方法
@@ -18,10 +18,37 @@ CASCO UI自动化项目，基础框架搭建
             3.1）API---interface
             3.2）UI
         4）suite：运行配置
+            多个suite要怎么才能实现CI集成呢，运行一个Py文件再运行下一个Py文件，或者并发运行
 
     3.config配置Config.YML(ini,XXX)文件用于配置基本信息
     4.data，Excel写入测试数据
     5.drivers,ie/chrome的driver phantomJS（无界面浏览器）
     6.log生成log，保存log    txt文件 可以将日志分类 error和debug...
     7.Report:生成HTMLReport，通过邮件发送出去
-    8.感觉少了截屏
+
+
+问题：
+    1.感觉少了截屏
+    2.怎么集成到CI呢？-----解决方法见..\Debug\report\testRandom.py
+        首先，我们使用这个框架的时候，会写很多Case，我们使用test中的suite来运行这些case，势必会产生很多的suite.py文件
+        这里假设如下结构  Suite
+                            ----suite1.py
+                            ----suite2.py
+                            ----suite3.py
+                            ----suite4.py
+                            ----run.py
+        我们可以看到suite*.py文件有多个，这样我们是没办法到cmd中直接用“Python  ..\suite*.py”来执行多个.py文件的，cmd不支持*
+        但是我们又需要集成到CI中，我们怎么做呢？这个困惑了我比较久的时间，今天找到了一个比较简单的解决办法。
+        我们用run.py调用suite*.py中的suite，统一到run.py中来运行，这样就实现了“Python  ..\run.py”，我们想要运行哪个suite
+        就可以运行哪个suite，且可以用run.py来实现CI集成的问题。（这种方法是同时运行多个py脚本，不知道运行case的时候会不会起冲突）
+    3.解决问题2带来的问题    ---------我使用了RF
+        RF 可以搜索同一个文件夹下面的所有.robot文件
+        这里也假设结构如下： Robot
+                            ----robot1.robot
+                            ----robot2.robot
+                            ----robot3.robot
+                            ----robot4.robot
+                            ----run.py
+        这里可以直接执行“robot  ..\Robot”命令，它会自己搜索Robot文件夹下面的.robot文件且执行其中的*** Test Cases ***，
+        这里有个run.py是不会搜索的，.robot文件中没有*** Test Cases ***也是会直接跳过的
+            解决这个问题不知道有没有类似于RF这样的方法，后期用到单线程多线程时，或许可以补上
