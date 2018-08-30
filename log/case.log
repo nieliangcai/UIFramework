@@ -1,12 +1,225 @@
-2018-07-26 11:07:43,712-framework-INFO-走火_百度百科
-2018-07-26 11:07:43,760-framework-INFO-男友为什么对我说小心走火?_百度知道
-2018-07-26 11:07:43,785-framework-INFO-小心走火 - 博客园
-2018-07-26 11:07:43,816-framework-INFO-小心爱神走火_百度百科
-2018-07-26 11:07:43,840-framework-INFO-走火-电视剧-全集高清正版视频在线观看-爱奇艺
-2018-07-26 11:07:43,865-framework-INFO-走火(2017年李小平执导电视剧)_百度百科
-2018-07-26 11:07:43,897-framework-INFO-睇住我走过,你小心走火是什么歌 - 爱问知识人
-2018-07-26 11:07:43,928-framework-INFO-FBI探员酒吧尬舞后空翻:枪掉了,还走火了
-2018-07-26 11:07:43,956-framework-INFO-邻居枪支不慎走火,11岁男孩差点丧命,最终男孩和家人原谅了..._搜狐
-2018-07-26 11:07:43,987-framework-INFO-小心走火
-2018-07-26 11:07:47,066-framework-INFO-attach fileC:\Users\HP\Desktop\W3CSchool_git\UIFramework\report\report2018072611.html
-2018-07-26 11:07:52,092-framework-INFO-邮件发送"自动化测试报告"成功！收件人:16602104373@163.com。如果没有受到邮件请检查垃圾箱，同时查看邮件地址是否正确
+2018-08-10 14:24:48,735-framework-DEBUG-GET---http://115.29.234.80:8201/WebReport/login.jsp?username=
+2018-08-10 14:24:48,737-framework-DEBUG-请求成功：<Response [200]>
+
+
+
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>综合运维系统平台</title>
+
+		<style type="text/css">
+html,body {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+</style>
+
+		<link rel="stylesheet" type="text/css"
+			href="/WebReport/css/default.css;jsessionid=8549EB2AEB4E8FE2BB1FCB8DCF466F21.jvm2" />
+		<link rel="stylesheet" type="text/css"
+			href="/WebReport/tg/commons/easyui/themes/default/easyui.css;jsessionid=8549EB2AEB4E8FE2BB1FCB8DCF466F21.jvm2" />
+		<link rel="stylesheet" type="text/css"
+			href="/WebReport/tg/commons/easyui/themes/icon.css;jsessionid=8549EB2AEB4E8FE2BB1FCB8DCF466F21.jvm2" />
+
+		<script type="text/javascript"
+			src="/WebReport/tg/commons/easyui/jquery-1.6.min.js;jsessionid=8549EB2AEB4E8FE2BB1FCB8DCF466F21.jvm2">
+		</script>
+		<script type="text/javascript"
+			src="/WebReport/tg/commons/easyui/jquery.easyui.min.js;jsessionid=8549EB2AEB4E8FE2BB1FCB8DCF466F21.jvm2">
+		</script>
+		<script type="text/javascript"
+			src="/WebReport/tg/commons/easyui/index.js;jsessionid=8549EB2AEB4E8FE2BB1FCB8DCF466F21.jvm2">
+		</script>
+
+
+		<script type="text/javascript">
+		
+var LoginAndReg;
+
+function loginCheck() {
+	var txtUserName = $("#txtUserName");
+	var txtPassword = $("#txtPassword");
+
+	if (txtUserName.val() == "") {
+		$.messager.alert('提示', '请输入用户名！', 'info');
+		txtUserName.focus();
+		return false;
+	} else if (txtPassword.val() == "") {
+		$.messager.alert('提示', '请输入密码！', 'info');
+		txtPassword.focus();
+		return false;
+	} else {
+
+
+		/*var user = encodeURI($("#txtUserName").val());
+		var pass = encodeURI($("#txtPassword").val());
+
+		var url = '/WebReport/loginLogin.tg;jsessionid=8549EB2AEB4E8FE2BB1FCB8DCF466F21.jvm2?username=' + user + '&password=' + pass+ '&loginbtnclick=1';
+		
+		$.post(url, null, function(data) {
+			
+			data = eval('(' + data + ')');
+			
+			if (data.success) {
+				//window.location.href = "/WebReport/loginLogin.tg";
+			}
+			if (data.error) {
+				$.messager.alert('提示', '用户名或密码有误！', 'error');
+			}
+		});*/
+		
+		// var url = '/WebReport/executeLogin.tg;jsessionid=8549EB2AEB4E8FE2BB1FCB8DCF466F21.jvm2?username=' + user + '&password=' + pass;
+		/*$('#login_form').form('submit', {
+			url:url,
+			onSubmit: function(){
+				return $('#login_form').form('validate');
+			},
+			success: function(data){
+				
+			}
+		});*/
+		return true;
+	}
+}
+
+
+function btnResetClick() {
+	document.getElementById('txtUserName').value = "";
+	document.getElementById('txtPassword').value = "";
+}
+
+
+$(function() {
+	var init_username = decodeURI("");
+	
+	
+	if(init_username != ""){
+		
+		
+		document.getElementById('txtUserName').value = init_username;
+		//document.getElementById('txtPassword').value = "";
+		$.messager.alert('提示', '用户名或密码有误！', 'error');
+	}
+});
+
+
+</script>
+
+	</head>
+
+	<body>
+		<div class="index_div">
+			<form id="login_form" method="post" action="executeLogin.tg">
+				<table border="0" width="100%" id="table1" cellspacing="0"
+					cellpadding="0" height="100%">
+					<tr>
+						<td background="images/bback.png">
+						</td>
+					</tr>
+					<tr>
+						<td height="452" background="images/back.png" align="center">
+							<table border="0" width="801" cellspacing="0" cellpadding="0"
+								background="images/login_baotou.png" height="452" id="table2">
+								<tr>
+									<td height="229">
+									</td>
+								</tr>
+								<tr>
+									<td height="28">
+										<table border="0" width="100%" cellspacing="0" cellpadding="0"
+											height="100%" id="table3">
+											<tr>
+												<td width="540">
+												</td>
+												<td width="138">
+													<input id="txtUserName" name="username" type="text"
+														size="18" />
+												</td>
+												<td width="123">
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td height="16"></td>
+								</tr>
+								<tr>
+									<td height="26">
+										<table border="0" width="100%" cellspacing="0" cellpadding="0"
+											height="100%" id="table4">
+											<tr>
+												<td width="540">
+												</td>
+												<td width="138">
+													<input id="txtPassword" type="password" name="password"
+														size="18" />
+												</td>
+												<td width="123">
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td height="37">
+									</td>
+								</tr>
+								<tr>
+									<td height="24">
+										<table border="0" width="100%" cellspacing="0" cellpadding="0"
+											height="100%" id="table5">
+											<tr>
+												<td width="540">
+												</td>
+												<td width="68">
+													<button id="btnLogin" type="submit" 
+														style="background-position: center; width: 68; height: 24; border-style: solid; border-width: 0; background-image: url('images/submit.png'); background-repeat: repeat-y"
+														onclick="return loginCheck();"/>
+												</td>
+												<td width="2">
+												</td>
+												<td width="68">
+													<button type="reset"  onclick="javascript:btnResetClick()"
+														style="background-position: center; width: 68; height: 24; border-style: solid; border-width: 0; background-image: url('images/reset.png'); background-repeat: repeat-y" />
+												</td>
+												<td width="123">
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td background="images/bback.png">
+						</td>
+					</tr>
+					<tr>
+						<td height="30" background="images/bback.png">
+							<p align="center">
+							<font size="3" face="宋体" color="#FF2D2D">
+							本系统只在(分辨率高于1440*960)谷歌Chrome浏览器下正常使用
+							<a target="_blank" href="/download/software/ChromeStandaloneSetup.exe">下载Chrome</a>
+							</font>
+							</p>
+							</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

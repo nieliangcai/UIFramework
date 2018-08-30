@@ -10,6 +10,13 @@ class Logger(object):
         self.logger = logging.getLogger(logger_name)#初始化，与后面的%(name)s对应
         logging.root.setLevel(logging.NOTSET)       #日志级别NOTSET<DEBUG<INFO<WARNING<ERROR<CRITICAL
         log = Config().get('log')
+        '''
+        三元操作符，temp = x if x > y else y
+            if x > y:
+                temp = x
+            else:
+                temp = y
+        '''
         self.log_file_name = log.get('file_name') if log and log.get('file_name') else 'case.log'
         self.back_count = log.get('back_count') if log and log.get('back_count') else 5
         self.console_output_level = log.get('console_output_level') if log and log.get('console_output_level') else 'WARNING'

@@ -16,10 +16,11 @@
 #                    })
 # print(res.url)
 
-import requests
+import requests,json
 
 res = requests.get('http://www.bing.com')
-#print(res.text)
+print(res.text)
 print(res.status_code)
 print(res.url)
 print(res.headers)
+# print(json.loads(res.text))

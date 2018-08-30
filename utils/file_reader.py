@@ -39,6 +39,7 @@ class ExcelReader(object):
         '''是否存在title栏，一般第一行为title;如果有title栏，返回dict，否则返回list'''
         if not self._data:
             workbook = open_workbook(self.excel)
+            # isinstance(self.sheet,[int,str])  判断sheet的类型是不是在[int,str]
             if type(self.sheet) not in [int,str]:
                 raise SheetTypeError('Sheet的类型不正确，请修正')
             elif type(self.sheet) == int:

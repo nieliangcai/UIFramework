@@ -5,7 +5,7 @@ class Page(Browser):
         if page:
             self.driver = page.driver
         else:
-            super(Page,self).__init__(browser_type=browser_type)
+            super(Page,self).__init__(browser_type=browser_type)        #super会自动找到基类
 
     def get_driver(self):
         return self.driver
